@@ -17,12 +17,13 @@ const Home = ()=>{
     const deleteUser = async id => {
         await axios.delete(`http://localhost:3003/users/${id}`);
         loadUsers();
+      
       };
 
     return(<div className="container-fluid">
         <div className="py-4">
-            <h1>Home Page</h1>
-            <table class="table table-bordered table-hover">
+            <h1 className="text-center">Users-List</h1>
+            <table className="table table-bordered table-hover">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -44,9 +45,9 @@ const Home = ()=>{
             <td>{user.email}</td>
             <td>{user.website}</td>
             <td>
-                <NavLink className="btn btn-primary mr-2"  to={`/users/${user.id}`}>View</NavLink>
-                <NavLink className="btn btn-outline-primary mr-2" to={`/users/edit/${user.id}`}>Edit</NavLink>
-                <NavLink className="btn btn-danger" onClick={() => deleteUser(user.id)}>Delete</NavLink>
+                <NavLink className="m-2 btn btn-primary"  to={`/users/${user.id}`}><i className="fa fa-eye"></i></NavLink>
+                <NavLink className="m-2 btn btn-outline-primary" to={`/users/edit/${user.id}`}><i className='fa fa-edit'></i></NavLink>
+                <NavLink className="m-2 btn btn-danger" onClick={() => deleteUser(user.id)}><i className='fa fa-trash'></i></NavLink>
             </td>
             </tr>
         ))

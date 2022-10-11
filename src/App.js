@@ -22,10 +22,11 @@ function App() {
       <Route  path="/contact" element= {<Contact/>} />
       <Route  path="/users/add" element={<AddUser />}/>
       <Route  path="/users/edit/:id" element={<EditUser />}/>
-      <Route  path="/users/:id" element={User} />
+      <Route  path="/users/:id" element={<User/>}/>
       <Route  path="*"  element={<InvalidRoute />} />
       </Routes>
-       </div></Router>
+       </div>
+       </Router>
     );
 }
 
