@@ -10,12 +10,12 @@ const Home = ()=>{
     },[]);
 
     const loadUsers = async() => {
-        const result = await axios.get("https://jsonplaceholder.typicode.com/users");
+        const result = await axios.get("https://backend-crud-api.herokuapp.com/user/user-list");
         setUser(result.data);   
     }
 
     const deleteUser = async id => {
-        await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+        await axios.delete(`https://backend-crud-api.herokuapp.com/user/remove-account/${id}`);
         loadUsers();
       
       };
@@ -39,15 +39,15 @@ const Home = ()=>{
     {
         users.map((user,index)=>(<tr>
             <th scope="row">{index+1}</th>
-            <td>{user.id}</td>
+            <td>{user._id}</td>
             <td>{user.name}</td>
             <td>{user.username}</td>
             <td>{user.email}</td>
             <td>{user.website}</td>
             <td>
-                <NavLink className="m-2 btn btn-primary"  to={`/users/${user.id}`}><i className="fa fa-eye"></i></NavLink>
-                <NavLink className="m-2 btn btn-outline-primary" to={`/users/edit/${user.id}`}><i className='fa fa-edit'></i></NavLink>
-                <NavLink className="m-2 btn btn-danger" onClick={() => deleteUser(user.id)}><i className='fa fa-trash'></i></NavLink>
+                <NavLink className="m-2 btn btn-primary"  to={`/users/${user._id}`}><i className="fa fa-eye"></i></NavLink>
+                <NavLink className="m-2 btn btn-outline-primary" to={`/users/edit/${user._id}`}><i className='fa fa-edit'></i></NavLink>
+                <NavLink className="m-2 btn btn-danger" onClick={() => deleteUser(user._id)}><i className='fa fa-trash'></i></NavLink>
             </td>
             </tr>
         ))

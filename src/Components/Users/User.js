@@ -15,14 +15,14 @@ const User = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:3003/users/${id}`);
+    const res = await axios.get(`https://backend-crud-api.herokuapp.com/user/user-detail/${id}`);
     setUser(res.data);
   };
   return (
     <div className="user">
       <div className="card w-50 mx-auto shadow ">
     <div className="container py-4 m-auto">
-      <h1 className="display-4 mb-4 text-center">User Id: {id}</h1>
+      <h4 className="mb-4 text-center">User Id: {id}</h4>
       <hr />
       <ul className="list-group w-50 ">
         <li className="list-group-item mb-2">name:-  {user.name}</li>

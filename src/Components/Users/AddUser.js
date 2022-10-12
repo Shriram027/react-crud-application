@@ -20,7 +20,7 @@ const AddUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("https://jsonplaceholder.typicode.com/users", user);
+    await axios.post("https://backend-crud-api.herokuapp.com/user/add-user", user);
    navigate('/');
   };
     return(
